@@ -21,16 +21,19 @@ function Refresh(){
     timeinterval = null; 
 
     }
-    
-function timeRecord(){
-    if(timeinterval){
+function AddZeros(num){
+    return String(num).padStart(2,'0')
+}
+function timeRecord() {
+    if (timeinterval) {
         return
     }
-    timeinterval = setInterval(function(){
-    timeM++;
-    let timeMs = timeM % 100;
-    let timeSecond =  parseInt(timeM / 100 ) %  60;
-    let timeMinuts=  parseInt(timeM / 6000);
+    timeinterval = setInterval(function () {
+        timeM++;
+        let timeMs = AddZeros(timeM % 100);
+        let timeSecond = AddZeros(parseInt(timeM / 100) % 60);
+        let timeMinuts = AddZeros(parseInt(timeM / 6000));
+
     
     timeReal = timeMinuts+ ":"+timeSecond+":"+timeMs
     
